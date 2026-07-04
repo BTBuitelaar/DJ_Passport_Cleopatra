@@ -51,12 +51,35 @@ height: auto;
 margin-bottom: 14px;
 }
 
-.passport-title {
-font-size: 28px;
-font-weight: 700;
-letter-spacing: 6px;
-text-transform: uppercase;
-color: #111;
+.header-video-wrapper {
+width: 100vw;
+position: relative;
+left: 50%;
+margin-left: -50vw;
+margin-bottom: 32px;
+overflow: hidden;
+line-height: 0;
+max-height: 220px;
+}
+
+.header-video-wrapper video {
+width: 100%;
+height: auto;
+max-height: 220px;
+object-fit: cover;
+display: block;
+pointer-events: none;
+user-select: none;
+-webkit-user-select: none;
+}
+
+@media (max-width: 480px) {
+.header-video-wrapper {
+max-height: 150px;
+}
+.header-video-wrapper video {
+max-height: 150px;
+}
 }
 
 .divider {
@@ -64,6 +87,14 @@ width: 100%;
 height: 1px;
 background: #e0e0e0;
 margin: 0 0 32px 0;
+}
+
+.passport-title {
+font-size: 28px;
+font-weight: 700;
+letter-spacing: 6px;
+text-transform: uppercase;
+color: #111;
 }
 
 .stone-image {
@@ -101,8 +132,8 @@ padding: 24px 0;
 }
 
 .info-label {
-font-size: 9px;
-letter-spacing: 4px;
+font-size: 13px;
+letter-spacing: 3px;
 text-transform: uppercase;
 color: #aaa;
 margin-bottom: 8px;
@@ -133,6 +164,15 @@ letter-spacing: 1px;
 
 <div class="passport-header">
 <img src="doric-logo-text.png" alt="Doric Jewelry" class="passport-logo">
+
+<div class="header-video-wrapper">
+<video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+<source src="passport-header-video.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="divider"></div>
+
 <h1 class="passport-title">Jewelry Passport</h1>
 </div>
 
