@@ -53,14 +53,28 @@ body {
   -webkit-user-select: none;
 }
 
-.passport-logo-overlay {
+.glass-chip {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 40px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px) saturate(180%);
+  -webkit-backdrop-filter: blur(6px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.passport-logo-overlay {
   width: 340px;
   height: auto;
-  z-index: 2;
+  display: block;
 }
 
 @media (max-width: 480px) {
@@ -69,6 +83,10 @@ body {
   }
   .header-video-wrapper video {
     max-height: 150px;
+  }
+  .glass-chip {
+    padding: 14px 24px;
+    border-radius: 20px;
   }
   .passport-logo-overlay {
     width: 240px;
@@ -179,7 +197,9 @@ body {
 <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
 <source src="passport-header-video.mp4" type="video/mp4">
 </video>
+<div class="glass-chip">
 <img src="doric-logo-text.png" alt="Doric Jewelry" class="passport-logo-overlay">
+</div>
 </div>
 
 <div class="passport-header">
