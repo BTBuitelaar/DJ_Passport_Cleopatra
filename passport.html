@@ -357,21 +357,26 @@ var ctx = c.getContext('2d');
 ctx.drawImage(logoImg, 0, 0, w, h);
 var data;
 try { data = ctx.getImageData(0, 0, w, h).data; } catch (e) { return; }
-var minX = w, maxX = 0;
+var minX = w, maxX = 0, minY = h, maxY = 0;
 var step = Math.max(1, Math.floor(w / 300));
 for (var y = 0; y < h; y += step) {
 for (var x = 0; x < w; x += step) {
 if (data[(y * w + x) * 4 + 3] > 10) {
 if (x < minX) minX = x;
 if (x > maxX) maxX = x;
+if (y < minY) minY = y;
+if (y > maxY) maxY = y;
 }
 }
 }
-if (maxX <= minX) return;
-var contentCenter = (minX + maxX) / 2;
-var imgCenter = w / 2;
-var shiftPct = ((imgCenter - contentCenter) / w) * 100;
-logoImg.style.transform = 'translateX(' + shiftPct.toFixed(2) + '%)';
+if (maxX <= minX || maxY <= minY) return;
+var contentCenterX = (minX + maxX) / 2;
+var imgCenterX = w / 2;
+var shiftPctX = ((imgCenterX - contentCenterX) / w) * 100;
+var contentCenterY = (minY + maxY) / 2;
+var imgCenterY = h / 2;
+var shiftPctY = ((imgCenterY - contentCenterY) / h) * 100;
+logoImg.style.transform = 'translate(' + shiftPctX.toFixed(2) + '%, ' + shiftPctY.toFixed(2) + '%)';
 }
 
 if (logoImg.complete && logoImg.naturalWidth) centerLogo();
