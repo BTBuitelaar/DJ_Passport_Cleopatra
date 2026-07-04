@@ -286,7 +286,7 @@ if (chipRect.width < 2 || chipRect.height < 2) return;
 var w = Math.max(2, Math.round(chipRect.width));
 var h = Math.max(2, Math.round(chipRect.height));
 var radius = parseFloat(getComputedStyle(chip).borderRadius) || 20;
-var edge = Math.max(8, radius * 1.05);
+var edge = Math.max(6, radius * 0.45);
 
 var mask = document.createElement('canvas');
 mask.width = w; mask.height = h;
@@ -311,7 +311,7 @@ out.width = w; out.height = h;
 var octx = out.getContext('2d');
 var outImg = octx.createImageData(w, h);
 var od = outImg.data;
-var strength = 7.5;
+var strength = 8.5;
 
 function lum(x, y) {
 x = x < 0 ? 0 : (x >= w ? w - 1 : x);
