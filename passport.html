@@ -365,7 +365,7 @@ buildMap();
 (function() {
 var ua = navigator.userAgent;
 var isSafari = /^((?!chrome|android|crios|fxios|edg|opios).)*safari/i.test(ua);
-if (!isSafari) return;
+if (!isSafari && location.search.indexOf('forceSafari') === -1) return;
 
 var chip = document.getElementById('glassChip');
 var video = document.querySelector('.header-video-wrapper video');
